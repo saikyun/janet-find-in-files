@@ -1,0 +1,22 @@
+Steps:
+
+(defn find-in-file
+  [path peg-expr]
+)
+OK 1. Open a file
+OK 2. peg/match to find search term
+OK 3. Return value:
+      [[123     150]
+       [160     170]
+       ^ start ^ end of match
+
+(defn find-in-files
+  [start-path peg-expr]
+)
+
+OK 1. Run find-in-file on each file in the
+   directory
+OK 2. Run find-in-files on each subdirectory
+OK 3. Return value
+      @{"path/to/file"  @[[123     150]]]
+        "path/to/file2" @[[160     170]]]
