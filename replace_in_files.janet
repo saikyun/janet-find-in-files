@@ -49,13 +49,18 @@
     #
 ))
 
-(pp (traverse-dir length "./"))
+(defn replace-in-files
+  [peg replacement dir]
+  (traverse-dir |(replace-in-file peg replacement $) dir))
 
 (print)
 
 (comment
   (any (+ (* ($) "hello" ($))
           1))
+
+  # prints the path lengths of all files inside ./
+  (pp (traverse-dir length "./"))
 
   (replace-in-string "nice" "cute" "cat is nice")
   #=> "cat is cute"
