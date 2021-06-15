@@ -27,7 +27,29 @@
   #
 )
 
-(print (replace-in-file "inside of" "outside of" "./replacement_example"))
+(defn traverse-dir
+  [f path &opt res]
+  (default res @{})
+
+  (let [files-and-folders (->> (os/dir path)
+                               (filter |(not (string/has-prefix?
+                                               "." $))))
+        files (filter |(= ((os/stat (string path $)) :mode) :file)
+                      files-and-folders)
+        folders (filter |(= ((os/stat (string path $)) :mode) :directory)
+                        files-and-folders)]
+    (loop [v :in folders]
+      (traverse-files f (string path v "/") res))
+
+    (loop [v :in files
+           :let [file-path (string path v)]]
+      (put res file-path (f file-path)))
+
+    res
+    #
+))
+
+(pp (traverse-dir length "./"))
 
 (print)
 
@@ -37,5 +59,8 @@
 
   (replace-in-string "nice" "cute" "cat is nice")
   #=> "cat is cute"
+
+  (print (replace-in-file "inside of" "outside of" "./replacement_example"))
+
   #
 )
