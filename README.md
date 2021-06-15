@@ -1,12 +1,15 @@
 # janet-find-in-files
 Find in files implemented in Janet.
 
-## Video of me writing this code
-https://www.youtube.com/watch?v=6_vUD4tGPrs
+## Videos
+[Find in files using Janet & Freja | Finding the Flow EP1](https://www.youtube.com/watch?v=6_vUD4tGPrs)
+
+[Replace in files with Janet & Freja | Finding the Flow EP2](https://www.youtube.com/watch?v=dhOl0KrTNgo)
+
 
 ## Requirements
 
-### To follow along the video
+### To follow along the videos
 
 [Freja](https://github.com/Saikyun/freja)
 
@@ -21,6 +24,11 @@ https://www.youtube.com/watch?v=6_vUD4tGPrs
 #              ^ the peg       ^ the directory
 (find-in-file (finder "file") "./goal")
 #              ^ the peg       ^ the file
+
+(replace-in-files "cat" # peg to find
+                  "dog" # replacement
+                  "./" # directory
+                  )
 ```
 
 ## License (MIT)
