@@ -1,0 +1,22 @@
+End goal:
+Be able to call a function that takes a
+directory and a PEG that might replace
+text in the files in the directory,
+and then save those files.
+
+replace-in-files
+
+
+OK Goal 1:
+OK 0. Apply PEG to a string
+OK 1. Apply PEG to a file
+OK 2. Replace the contents of that file
+      with the result of the PEG
+
+replace-in-file
+
+Goal 2:
+1. Find all files in directory
+   and subdirectories
+2. Run replace-in-file on all those files
+
